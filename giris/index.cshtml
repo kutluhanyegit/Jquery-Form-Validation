@@ -1,0 +1,56 @@
+@{
+    Layout = "_Null";
+    ViewBag.Title = "Giriş";
+}
+@using rentid.ViewModels
+@model girisVM
+
+<div id="giris" >
+
+    <div class="col-lg-6 float-left h-100">
+        <div class="col-10 offset-1 mt-5">
+            <a href="/">
+                <img class="logo" src="/assets/img/logo.png">
+            </a>
+            <div class="col-10 offset-1 mt-5">
+                <h3>Giriş</h3>
+                <small>Giriş yapabilmeniz için E-posta adresinize şifrenize ihtiyacımız var.</small>
+                <form name="giris-form" class="form-group" asp-controller="giris" asp-action="index" method="POST">
+                    <!--email-->
+                    <div class="form-row mt-4">
+                        <div class="col">
+                            <input asp-for="@Model.email" type="email" class="form-control form-control-sm" placeholder="E-posta adresiniz">
+                        </div>
+                    </div>
+                    <!--sifre-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <input asp-for="@Model.sifre" type="password" class="form-control form-control-sm" placeholder="Şifreniz">
+                        </div>
+                    </div>
+                    <!--beni hatirla / sifremi unuttum-->
+                    <div class="form-row mt-3 ml-3">
+                        <div class="col">
+                            <input asp-for="@Model.beniHatirla" type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <span class="form-check-label" for="exampleCheck1">Beni Hatırla</span>
+                        </div>
+                        <div class="col text-right">
+                            <a href="/sifremi_unuttum"><span>Şifremi Unuttum</span></a>
+                        </div>
+                    </div>
+                    
+                    <!--Button-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <button class="btn btn-secondary w-100" type="submit">Giriş</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 float-left bg-img h-100">
+        
+    </div>
+</div>

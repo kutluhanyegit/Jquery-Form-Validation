@@ -1,0 +1,106 @@
+@{
+    Layout = "_Null";
+    ViewBag.Title = "Kurumsal Kayıt";
+}
+@using rentid.ViewModels
+@model kurumsalKayitVM
+
+<div id="kurumsal-kayit">
+    <div class="col-lg-6 float-left h-100">
+        <div class="col-10 offset-1 mt-5">
+            <a href="/">
+                <img class="logo" src="/assets/img/logo.png">
+            </a>
+            
+            <div class="col-10 offset-1 mt-5">
+                
+                <div class="form-row mt-3 text-center">
+                    <div onclick="bireysel()" class="col-6 kurumsal-bireysel p-2" style="cursor: pointer;">
+                        <a>Bireysel</a>
+                    </div>
+                    <div onclick="kurumsal()" class="col-6 kurumsal-kurumsal p-2" style="cursor: pointer;">
+                        <a>Kurumsal</a>
+                    </div>
+                </div>
+                <small>Kurumsal Kayıt</small>
+
+                <form class="form-group" name="kurumsal-form" asp-controller="kurumsal_kayit" asp-action="index" method="POST">
+                    
+                    <!--ad/soyad-->
+                    <div class="form-row">
+                        <div class="col-md-6 mt-3">
+                            <input asp-for="@Model.ad" type="text" class="form-control form-control-sm" placeholder="Adınız">
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <input asp-for="@Model.soyad" type="text" class="form-control form-control-sm" placeholder="Soyadınız">
+                        </div>
+                    </div>
+                    <!--TCKN-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <input asp-for="@Model.tckn" type="text" class="form-control form-control-sm" placeholder="TC Kimlik numarası">
+                        </div>
+                    </div>
+                    <!--Tel-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <input asp-for="@Model.tel" type="text" class="form-control form-control-sm" placeholder="Telefon numaranız">
+                        </div>
+                    </div>
+                    <!--Email-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <input asp-for="@Model.email" type="email" class="form-control form-control-sm" placeholder="Email adresiniz">
+                        </div>
+                    </div>
+                    <!--sifre/sifreOnay-->
+                    <div class="form-row">
+                        <div class="col-md-6 mt-3">
+                            <input asp-for="@Model.sifre" type="password" class="form-control form-control-sm" placeholder="Şifreniz">
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <input asp-for="@Model.sifreTekrar" type="password" class="form-control form-control-sm" placeholder="Şifre Onay">
+                        </div>
+                    </div>
+                    <!--Isletme Ad-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <input asp-for="@Model.isletmeAd" type="text" class="form-control form-control-sm" placeholder="İşletme adı">
+                        </div>
+                    </div>
+
+                    <!--onay-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <div class="form-group form-check">
+                                <span  class="form-check-label" for="exampleCheck1"><input asp-for="@Model.kvkk" value="true" type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                                    <input value="false"  type="hidden" >
+                                    <span style="font-weight: bold;" >Rentid</span> <a href="/">Hizmet Şartları</a> ve <a href="/">Gizlilik Politikasını</a> okudum ve kabul ediyorum.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Button-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <button class="btn btn-secondary w-100" type="submit">Kayıt Ol</button>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="form-row mt-3">
+                    <div class="col text-center">
+                        <p>Zaten <span style="font-weight: bold;" >Rentid</span> kullanıyor musunuz? <a href="/giris">Oturum açın.</a></p>
+                    </div>
+                    
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 float-left bg-img h-100">
+        
+    </div>
+</div>
+
